@@ -1,7 +1,9 @@
-apiKey: "AIzaSyC6Y2zS9o1XIS5g..."
-authDomain: "zara-ai-24884.firebaseapp.com"
-projectId: "zara-ai-24884"
-storageBucket: "zara-ai-24884..."
-messagingSenderId: "445061601774"
-appId: "1:445061601774:web:7334..."
-measurementId: "G-NK2ZGDJ8B8"
+{
+  "projectId": "zara-ai-24884",
+  "appId": "1:445061601774:web:7334d56ace1fcc6a8756ff",
+  "apiKey": "AIzaSyC6Y2zS9o1XIS5g0PTcDpQ62M3t3z2dK5o",
+  "authDomain": "zara-ai-24884.firebaseapp.com",
+  "storageBucket": "zara-ai-24884.firebasestorage.app",
+  "messagingSenderId": "445061601774",
+  "measurementId": "G-NK2ZGDJ8B8"
+}
