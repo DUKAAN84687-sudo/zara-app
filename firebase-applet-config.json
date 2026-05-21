@@ -1,10 +1,7 @@
-{
-  "projectId": "stately-catbird-6cf5x",
-  "appId": "1:327967449137:web:5b47120e9fe07f3698b510",
-  "apiKey": "AIzaSyDX2Utq9EwoWSq6G09hRZw35cETD7bF-g8",
-  "authDomain": "zara-app-ten.vercel.app",
-  "firestoreDatabaseId": "ai-studio-b8d376ad-2408-4674-937a-114736bed485",
-  "storageBucket": "stately-catbird-6cf5x.firebasestorage.app",
-  "messagingSenderId": "327967449137",
-  "measurementId": ""
-}
+apiKey: "AIzaSyC6Y2zS9o1XIS5g..."
+authDomain: "zara-ai-24884.firebaseapp.com"
+projectId: "zara-ai-24884"
+storageBucket: "zara-ai-24884..."
+messagingSenderId: "445061601774"
+appId: "1:445061601774:web:7334..."
+measurementId: "G-NK2ZGDJ8B8"
