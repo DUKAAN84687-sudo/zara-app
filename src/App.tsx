@@ -11,9 +11,7 @@ import speakingImg from "./assets/images/anime_girl_speaking_1779266227589.png";
 
 export default function AppWrapper() {
   return (
-    <Auth>
-      {(user) => <App user={user} />}
-    </Auth>
+    <App user={null} />
   );
 }
 
