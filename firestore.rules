@@ -1,0 +1,45 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidMemory(data, uid) {
+      return data.keys().hasAll(['userId', 'content', 'createdAt']) &&
+        data.keys().size() == 3 &&
+        data.userId == uid &&
+        data.content is string && data.content.size() > 0 && data.content.size() <= 2000 &&
+        data.createdAt == request.time;
+    }
+
+    match /users/{userId}/memories/{memoryId} {
+      allow read: if isAuthenticated() && request.auth.uid == userId;
+      allow list: if isAuthenticated() && request.auth.uid == userId && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && 
+                    isValidId(userId) && 
+                    isValidId(memoryId) && 
+                    request.auth.uid == userId && 
+                    isValidMemory(incoming(), userId);
+      allow update: if false; // Immutable memories
+      allow delete: if isAuthenticated() && request.auth.uid == userId;
+    }
+  }
+}

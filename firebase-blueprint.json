@@ -1,0 +1,32 @@
+{
+  "entities": {
+    "Memory": {
+      "title": "Memory",
+      "description": "A memory saved by Luna about the user.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user."
+        },
+        "content": {
+          "type": "string",
+          "description": "The memory content."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp of memory creation."
+        }
+      },
+      "required": ["userId", "content", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/memories/{memoryId}": {
+      "schema": {
+        "$ref": "#/entities/Memory"
+      },
+      "description": "Memories about the user."
+    }
+  }
+}
