@@ -5,5 +5,6 @@
   "authDomain": "zara-ai-24884.firebaseapp.com",
   "storageBucket": "zara-ai-24884.firebasestorage.app",
   "messagingSenderId": "445061601774",
-  "measurementId": "G-NK2ZGDJ8B8"
+  "measurementId": "G-NK2ZGDJ8B8",
+  "firestoreDatabaseId": "(default)"
 }
