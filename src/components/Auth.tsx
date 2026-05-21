@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, User } from "firebase/auth";
+import { onAuthStateChanged, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, User } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { motion } from "motion/react";
 
@@ -7,7 +7,9 @@ export function Auth({ children }: { children: (user: User) => React.ReactNode }
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => {getRedirectResult(auth).then((result) => {
+  if (result?.user) setUser(result.user);
+});
     const unsub = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
@@ -19,7 +21,7 @@ export function Auth({ children }: { children: (user: User) => React.ReactNode }
     try {
       const provider = new GoogleAuthProvider();
       provider.setCustomParameters({ prompt: 'select_account' });
-      await signInWithPopup(auth, provider);
+      await signInWithRedirect(auth, provider);
     } catch (err) {
       console.error("Login error", err);
     }
